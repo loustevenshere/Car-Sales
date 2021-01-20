@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const AdditionalFeature = props => {
+  console.log(props.feature.name)
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
@@ -10,4 +12,10 @@ const AdditionalFeature = props => {
   );
 };
 
-export default AdditionalFeature;
+
+const mapStateToProps = (state) => {
+  return {
+    additionalFeatures: state.additionalFeatures
+  }
+}
+export default connect(mapStateToProps)(AdditionalFeature);
